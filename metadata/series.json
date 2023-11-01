@@ -16,5 +16,6 @@
             "parent_id": "CISO",
             "subba_id": "VEA"
         }
-    ]
+    ],
+    "api_path": "electricity/rto/region-sub-ba-data/"
 }
