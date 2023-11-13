@@ -1,6 +1,12 @@
-# Setting a backfile
-source("./dev/01_initial_settings.R")
+# Description ----
+# Initial data pull (backfill) of historical data
+# Requirements:
+# Set the series details on the ./metadata/series.json file
+# Set the api key on the 02_initial_settings.R file
 
+# Setting a backfile
+source("./dev/00_functions.R")
+source("./dev/02_initial_settings.R")
 # Pulling metadata from the API
 meta <- EIAapi::eia_metadata(api_key = api_key, api_path = api_path)
 start <- lubridate::ymd_h(meta$startPeriod, tz = "UTC")
@@ -25,21 +31,7 @@ back_fill <- lapply(1:nrow(mapping), function(i) {
     # TODO
     # Add unit tests
     # Add metadata
-
-    meta <- data.frame(
-        parent = parent,
-        subba = subba,
-        time = t,
-        start = start,
-        end = end,
-        start_act = min(df$time),
-        end_act = max(df$time),
-        start_match = ifelse(start == min(df$time), TRUE, FALSE),
-        end_match = ifelse(end == max(df$time), TRUE, FALSE),
-        n_obs = nrow(df),
-        na = sum(is.na(df$value)),
-        type = "backfill"
-    )
+    meta <- create_metadata(input = df, start = start, end = end, type = "backfill")
 
     output <- list(data = df, meta = meta)
     return(output)
@@ -47,7 +39,6 @@ back_fill <- lapply(1:nrow(mapping), function(i) {
 
 
 # Parse the backfill output
-
 data <- lapply(back_fill, function(i) {
     d <- i$data
     return(d)
