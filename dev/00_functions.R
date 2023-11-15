@@ -1,3 +1,31 @@
+#' Create a Metadata data.frame Template
+#' @description The function creates a template metadata data.frame
+#' @return An empty data.frame
+
+metadata_tamplate <- function() {
+    metadata_template <- data.frame(
+        index = integer(),
+        parent = character(),
+        subba = character(),
+        time = lubridate::POSIXct(),
+        start = lubridate::POSIXct(),
+        end = lubridate::POSIXct(),
+        start_act = lubridate::POSIXct(),
+        end_act = lubridate::POSIXct(),
+        start_match = logical(),
+        end_match = logical(),
+        n_obs = integer(),
+        na = integer(),
+        type = character(),
+        update = logical(),
+        success = logical(),
+        comments = character()
+    )
+
+    return(metadata_template)
+}
+
+
 #' Creating Metadata Table
 #' @description The function creates metadata table for the refresh dataset
 #' @param input The returned object from the eia_backfill function
@@ -18,9 +46,14 @@ create_metadata <- function(input, start, end, type) {
 
     parent <- unique(input$parent)
     subba <- unique(input$subba)
-
+    if (type == "backfill") {
+        index <- 1
+    } else {
+        index <- NA
+    }
 
     meta <- data.frame(
+        index = index,
         parent = parent,
         subba = subba,
         time = Sys.time(),
@@ -32,7 +65,10 @@ create_metadata <- function(input, start, end, type) {
         end_match = ifelse(end == max(input$time), TRUE, FALSE),
         n_obs = nrow(input),
         na = sum(is.na(input$value)),
-        type = type
+        type = type,
+        update = NA,
+        success = NA,
+        comments = ""
     )
 
     return(meta)
