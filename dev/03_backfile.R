@@ -10,7 +10,7 @@ source("./dev/02_initial_settings.R")
 # Pulling metadata from the API
 meta <- EIAapi::eia_metadata(api_key = api_key, api_path = api_path)
 start <- lubridate::ymd_h(meta$startPeriod, tz = "UTC")
-end <- lubridate::ymd_h(meta$endPeriod, tz = "UTC") - lubridate::hours(10)
+end <- lubridate::ymd_h(meta$endPeriod, tz = "UTC") - lubridate::hours(24)
 
 # Backfill ----
 back_fill_names <- paste(mapping$parent_id, mapping$subba_id, sep = "_")
