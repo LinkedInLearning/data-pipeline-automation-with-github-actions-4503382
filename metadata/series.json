@@ -1,0 +1,21 @@
+{
+    "series": [
+        {
+            "parent_id": "CISO",
+            "subba_id": "PGAE"
+        },
+        {
+            "parent_id": "CISO",
+            "subba_id": "SCE"
+        },
+        {
+            "parent_id": "CISO",
+            "subba_id": "SDGE"
+        },
+        {
+            "parent_id": "CISO",
+            "subba_id": "VEA"
+        }
+    ],
+    "api_path": "electricity/rto/region-sub-ba-data/"
+}
