@@ -140,5 +140,6 @@ if (nrow(meta_new) > 0) {
     # Save log
     print("Saving the metadata")
     meta_new <- rbind(meta_log, meta_new)
+    print(meta_new)
     saveRDS(meta_new, file = "./metadata/ciso_log.RDS")
 }
