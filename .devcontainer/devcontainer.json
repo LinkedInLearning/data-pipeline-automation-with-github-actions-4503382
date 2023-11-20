@@ -1,18 +1,19 @@
 {
     "name": "EIA Data Automation",
-    "build": {
-        "dockerfile": "Dockerfile.dev",
-        "context": ".",
-        "args": {
-            "PROJECT_NAME": "EIA-Data-Automation",
-            "VENV_NAME": "R_ENV",
-            "R_VERSION_MAJOR": "4",
-            "R_VERSION_MINOR": "3",
-            "R_VERSION_PATCH": "1",
-            "CRAN_MIRROR": "https://cran.rstudio.com/",
-            "QUARTO_VER": "1.3.450"
-        }
-    },
+    // "build": {
+    //     "dockerfile": "Dockerfile.dev",
+    //     "context": ".",
+    //     "args": {
+    //         "PROJECT_NAME": "EIA-Data-Automation",
+    //         "VENV_NAME": "R_ENV",
+    //         "R_VERSION_MAJOR": "4",
+    //         "R_VERSION_MINOR": "3",
+    //         "R_VERSION_PATCH": "1",
+    //         "CRAN_MIRROR": "https://cran.rstudio.com/",
+    //         "QUARTO_VER": "1.3.450"
+    //     }
+    // },
+    "image": "docker.io/rkrispin/eia_data_refresh:dev.0.0.0.9000",
     "settings": {
         "files.associations": {
             "*.Rmd": "rmd"
@@ -37,7 +38,9 @@
                 "ms-vscode-remote.remote-containers",
                 // Python Extensions
                 "ms-python.python",
-                "ms-toolsai.jupyter"
+                "ms-toolsai.jupyter",
+                // Github Actions
+                "github.vscode-github-actions"
             ]
         }
     },

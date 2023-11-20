@@ -3,7 +3,10 @@ source("./dev/00_functions.R")
 source("./dev/02_initial_settings.R")
 
 # Load metadata
-meta_df <- readRDS(file = "./metadata/ciso_log.RDS") |>
+
+meta_log <- readRDS(file = "./metadata/ciso_log.RDS")
+
+meta_df <- meta_log |>
     dplyr::filter(success) |>
     dplyr::filter(index == max(index))
 
@@ -55,9 +58,6 @@ if (any(mapping_df$status)) {
             facets = list(parent = parent, subba = subba)
         )
 
-        # TODO
-        # Add unit tests
-        # Add metadata
         meta <- create_metadata(input = df, start = start, end = end_api, type = "refresh")
         meta$index[1] <- index + 1
 
@@ -105,6 +105,7 @@ if (any(!mapping_df$status)) {
             subba = mapping_no_success$subba_id[i],
             time = Sys.time(),
             update = FALSE,
+            success = FALSE,
             comments = "No updates available"
         )
 
@@ -138,6 +139,7 @@ if (any(meta_new$success) && nrow(data_new) > 0) {
 if (nrow(meta_new) > 0) {
     # Save log
     print("Saving the metadata")
-    meta <- rbind(meta_df, meta_new)
-    saveRDS(meta, file = "./metadata/ciso_log.RDS")
+    meta_new <- rbind(meta_log, meta_new)
+    print(meta_new)
+    saveRDS(meta_new, file = "./metadata/ciso_log.RDS")
 }
