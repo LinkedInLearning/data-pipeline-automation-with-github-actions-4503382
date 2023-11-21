@@ -68,7 +68,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     python3-pip \
     libharfbuzz-dev \
     libfribidi-dev \
-&& rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/*
 
 # Step 4 - Install R
 RUN wget https://cran.rstudio.com/src/base/R-${R_VERSION_MAJOR}/R-${R_VERSION_MAJOR}.${R_VERSION_MINOR}.${R_VERSION_PATCH}.tar.gz && \
