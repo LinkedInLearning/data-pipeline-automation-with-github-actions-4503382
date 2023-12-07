@@ -34,7 +34,9 @@ if (is.null(meta_new)) {
     print("Loaded the meta_new")
 }
 index <- max(meta_df$index)
-
+print(api_path)
+print(length(api_key))
+print(nchar(api_key))
 # Pulling metadata from the API
 meta <- EIAapi::eia_metadata(api_key = api_key, api_path = api_path)
 if (is.null(meta)) {
