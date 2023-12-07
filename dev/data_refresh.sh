@@ -8,15 +8,15 @@ git config --global --add safe.directory /__w/data-pipeline-automation-with-gith
 
 if [[ "$(git status --porcelain)" != "" ]]; then
     echo "Set user name"
-    # git config --global user.name 'RamiKrispin'
-    # echo "Set user email"
-    # git config --global user.email 'ramkrisp@umich.edu'
-    # echo "Add new files"
-    # git add csv/*
-    # git add metadata/*
-    # echo "Commit"
-    # git commit -m "Auto update of the data"
-    # git push origin stg
+    git config --global user.name 'RamiKrispin'
+    echo "Set user email"
+    git config --global user.email 'ramkrisp@umich.edu'
+    echo "Add new files"
+    git add csv/*
+    git add metadata/*
+    echo "Commit"
+    git commit -m "Auto update of the data"
+    git push origin stg
 else
 echo "Nothing to commit..."
 fi
