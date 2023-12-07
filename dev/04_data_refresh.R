@@ -162,7 +162,6 @@ if (any(mapping_df$status)) {
 
 if (any(!mapping_df$status)) {
     print("No new data available for the below")
-    print(mapping_df)
     mapping_no_success <- mapping_df |> dplyr::filter(!status)
     meta_temp <- NULL
     meta_temp <- lapply(1:nrow(mapping_no_success), function(i) {
@@ -208,6 +207,6 @@ if (nrow(meta_new) > 0) {
     # Save log
     print("Saving the metadata")
     meta_new <- rbind(meta_log, meta_new)
-    print(meta_new)
+
     saveRDS(meta_new, file = "./metadata/ciso_log.RDS")
 }
