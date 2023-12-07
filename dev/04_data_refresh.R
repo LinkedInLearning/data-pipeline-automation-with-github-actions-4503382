@@ -35,8 +35,10 @@ if (is.null(meta_new)) {
 }
 index <- max(meta_df$index)
 
-print(commandArgs(trailingOnly = TRUE))
 
+print("test...")
+print(Sys.getenv("API_KEY"))
+print(nchar(Sys.getenv("API_KEY")))
 print("Test api_key")
 print(length(api_key))
 print(nchar(api_key))
