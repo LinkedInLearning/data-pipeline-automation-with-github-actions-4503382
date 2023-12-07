@@ -14,4 +14,8 @@ mapping <- lapply(1:length(series), function(i) {
     dplyr::bind_rows()
 
 api_key <- Sys.getenv("EIA_API_KEY")
+if (api_key == "") {
+    api_key <- commandArgs(trailingOnly = TRUE)
+}
+
 offset <- 24 * 30 * 3

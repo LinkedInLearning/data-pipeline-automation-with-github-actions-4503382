@@ -38,9 +38,6 @@ print(api_path)
 print("Test api_key")
 print(length(api_key))
 print(nchar(api_key))
-print("Test API_KEY")
-print(length(API_KEY))
-print(nchar(API_KEY))
 
 # Pulling metadata from the API
 meta <- EIAapi::eia_metadata(api_key = api_key, api_path = api_path)
