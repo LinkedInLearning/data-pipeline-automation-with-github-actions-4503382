@@ -32,3 +32,4 @@ mapping_table <- subba |>
     dplyr::select(parent_name, parent_id, subba_name, subba_id, subba_alias)
 
 head(mapping_table)
+write.csv(mapping_table, "./metadata/mapping_table.csv", row.names = FALSE)
