@@ -12,11 +12,11 @@ docker build . -f Dockerfile.dev \
                 --build-arg DEBIAN_FRONTEND=noninteractive \
                  --build-arg CRAN_MIRROR="https://cran.rstudio.com/" \
                --build-arg QUARTO_VER="1.3.450" \
-               -t rkrispin/eia_data_refresh:dev.0.0.0.9000
+               -t rkrispin/eia_data_refresh:arm64.0.0.0.9000
 
 if [[ $? = 0 ]] ; then
 echo "Pushing docker..."
-docker push rkrispin/eia_data_refresh:dev.0.0.0.9000
+docker push rkrispin/eia_data_refresh:arm64.0.0.0.9000
 else
 echo "Docker build failed"
 fi
