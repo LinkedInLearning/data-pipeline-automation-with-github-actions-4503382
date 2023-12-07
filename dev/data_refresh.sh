@@ -2,6 +2,7 @@
 
 Rscript -e "source('./dev/04_data_refresh.R')"
 
+echo "Finish"
 
 if [[ "$(git status --porcelain)" != "" ]]; then
     echo "Set user name"

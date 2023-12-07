@@ -209,5 +209,6 @@ if (nrow(meta_new) > 0) {
     meta_new <- rbind(meta_log, meta_new)
     print(getwd())
     print(dir())
-    # saveRDS(meta_new, file = "./metadata/ciso_log.RDS")
+    saveRDS(meta_new, file = "./metadata/ciso_log.RDS")
+    print("end")
 }
