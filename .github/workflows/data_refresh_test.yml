@@ -1,8 +1,9 @@
 name: Data Refresh
 
-on: [push, pull_request]
+on:
+  [pull_request]
   # schedule:
-    # - cron: "0 */1 * * *"
+  # - cron: "0 */1 * * *"
 jobs:
   refresh-the-dashboard:
     runs-on: ubuntu-22.04
