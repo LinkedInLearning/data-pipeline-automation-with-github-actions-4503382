@@ -4,6 +4,8 @@ Rscript -e "source('./dev/04_data_refresh.R')"
 
 echo "Finish"
 
+git config --global --add safe.directory /__w/data-pipeline-automation-with-github-actions-4503382/data-pipeline-automation-with-github-actions-4503382
+
 if [[ "$(git status --porcelain)" != "" ]]; then
     echo "Set user name"
     # git config --global user.name 'RamiKrispin'
