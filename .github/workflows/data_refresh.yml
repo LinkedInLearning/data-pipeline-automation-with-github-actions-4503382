@@ -12,7 +12,7 @@ jobs:
       - name: checkout_repo
         uses: actions/checkout@v2
         with:
-          ref: "test-github-actions"
+          ref: "stg"
       - name: Data Refresh
         run: bash ./dev/data_refresh.sh "RamiKrispin" "ramkrisp@umich.edu"
         env:
