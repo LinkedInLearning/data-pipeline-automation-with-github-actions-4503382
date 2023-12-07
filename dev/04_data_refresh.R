@@ -35,6 +35,7 @@ if (is.null(meta_new)) {
 }
 index <- max(meta_df$index)
 
+print(commandArgs(trailingOnly = TRUE))
 
 print("Test api_key")
 print(length(api_key))
