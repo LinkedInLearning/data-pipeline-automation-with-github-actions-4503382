@@ -33,7 +33,7 @@ if (is.null(meta_new)) {
 } else {
     print("Loaded the meta_new")
 }
-index <- max(meta_df$index)
+index <- max(meta_log$index)
 
 
 # Pulling metadata from the API
