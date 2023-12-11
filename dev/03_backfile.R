@@ -17,7 +17,6 @@ time_vec <- seq.POSIXt(from = start, to = end, by = "hour")
 back_fill_names <- paste(mapping$parent_id, mapping$subba_id, sep = "_")
 
 back_fill <- lapply(1:nrow(mapping), function(i) {
-    
     parent <- mapping$parent_id[i]
     subba <- mapping$subba_id[i]
     subba_name <- mapping$subba_name[i]
@@ -44,7 +43,7 @@ back_fill <- lapply(1:nrow(mapping), function(i) {
         "subba_name", "parent_name"
     ))
 
-    if(nrow(df) != length(time_vec)){
+    if (nrow(df) != length(time_vec)) {
         stop(paste(subba_name, "There is mismatch between the number of expected rows and actual one, check the merge", sep = " - "))
     }
 
@@ -70,7 +69,7 @@ back_fill <- lapply(1:nrow(mapping), function(i) {
         meta$update[1] <- FALSE
     }
 
-    if(meta$comments[1] == ""){
+    if (meta$comments[1] == "") {
         meta$comments[1] <- comment
     }
 
@@ -108,8 +107,9 @@ plotly::plot_ly(
 )
 
 # Backfile inspection
-if(!any(meta$success)){
+if (!any(meta$success)) {
     print("One or more series failed the test, please check the comments")
+    print("Did not pass the initial tests, please check the metadata table")
 } else {
     # Save the data ----
     # Save data as csv file
@@ -118,8 +118,6 @@ if(!any(meta$success)){
     # Save log
     print("Saving the metadata")
     saveRDS(meta, file = "./metadata/ciso_log.RDS")
-} else {
-    print("Did not pass the initial tests, please check the metadata table")
 }
 
 
