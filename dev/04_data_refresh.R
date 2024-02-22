@@ -15,9 +15,16 @@ if (is.null(meta_log)) {
     print("Loaded the meta_log")
 }
 
-meta_df <- meta_log |>
-    dplyr::filter(success) |>
-    dplyr::filter(index == max(index))
+
+meta_df <- lapply(mapping$subba_id, function(i) {
+    meta_df <- meta_log |>
+        dplyr::filter(success, subba == i) |>
+        dplyr::filter(index == max(index))
+    return(meta_df)
+}) |>
+    dplyr::bind_rows()
+
+
 
 if (is.null(meta_df)) {
     print("Failed to load the meta_df")

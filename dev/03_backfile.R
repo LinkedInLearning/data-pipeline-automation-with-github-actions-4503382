@@ -9,8 +9,8 @@ source("./dev/00_functions.R")
 source("./dev/02_initial_settings.R")
 # Pulling metadata from the API
 meta <- EIAapi::eia_metadata(api_key = api_key, api_path = api_path)
-start <- lubridate::ymd_h(meta$startPeriod, tz = "UTC")
-end <- lubridate::ymd_h(meta$endPeriod, tz = "UTC") - lubridate::hours(24)
+start <- as.POSIXct("2018-07-01 0:00:00")
+end <- as.POSIXct("2024-02-18 0:00:00")
 
 time_vec <- seq.POSIXt(from = start, to = end, by = "hour")
 # Backfill ----
@@ -72,10 +72,6 @@ back_fill <- lapply(1:nrow(mapping), function(i) {
     if (meta$comments[1] == "") {
         meta$comments[1] <- comment
     }
-
-
-
-
 
     output <- list(data = df, meta = meta)
     return(output)
