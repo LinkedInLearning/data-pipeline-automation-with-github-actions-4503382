@@ -1,0 +1,54 @@
+---
+title: "EIA API - Data Backfill"
+format:
+  html:
+    code-fold: true
+jupyter: python3
+---
+
+## Load libraries
+
+```{python}
+import eia_api as api
+import eia_etl as etl
+import eia_metadata as eia_meta
+import pandas as pd
+import numpy as np
+import requests
+import json
+import os
+import datetime
+import plotly.express as px
+```
+
+
+
+API Settings:
+```{python}
+raw_json = open("../metadata/series.json")
+meta_json = json.load(raw_json)
+series = pd.DataFrame(meta_json["series"])
+api_path = meta_json["api_path"]
+
+facets_template = {
+  "parent" : None,
+  "subba" : None
+}
+
+start = datetime.datetime(2018, 6, 20, 1)
+end = datetime.datetime(2024, 2, 18, 1)
+
+offset = 2250
+
+eia_api_key = os.getenv('EIA_API_KEY')
+
+meta_path = "../metadata/ciso_log_py.csv"
+data_path = "../csv/ciso_grid_py.csv"
+```
+
+
+```{python}
+meta = eia_meta.load_metadata(path = meta_path, series = series)
+```
+
+

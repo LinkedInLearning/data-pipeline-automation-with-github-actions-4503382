@@ -1,0 +1,5 @@
+,index,parent,subba,time,start,end,start_act,end_act,start_match,end_match,n_obs,na,type,update,success,comments
+0,1,CISO,PGAE,2024-02-21 14:25:14.116685+00:00,2018-07-01 01:00:00,2024-02-18 01:00:00,2018-07-01 01:00:00,2024-02-18 01:00:00,True,True,49393,105,backfile,True,True,Missing values were found; 
+0,1,CISO,SCE,2024-02-21 14:25:27.859687+00:00,2018-07-01 01:00:00,2024-02-18 01:00:00,2018-07-01 01:00:00,2024-02-18 01:00:00,True,True,49393,105,backfile,True,True,Missing values were found; 
+0,1,CISO,SDGE,2024-02-21 14:25:41.422542+00:00,2018-07-01 01:00:00,2024-02-18 01:00:00,2018-07-01 01:00:00,2024-02-18 01:00:00,True,True,49393,105,backfile,True,True,Missing values were found; 
+0,1,CISO,VEA,2024-02-21 14:25:54.614824+00:00,2018-07-01 01:00:00,2024-02-18 01:00:00,2018-07-01 01:00:00,2024-02-18 01:00:00,True,True,49393,105,backfile,True,True,Missing values were found; 
