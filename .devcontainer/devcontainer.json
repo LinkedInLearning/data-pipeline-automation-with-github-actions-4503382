@@ -1,23 +1,13 @@
 {
     "name": "EIA Data Automation",
     // "build": {
-    //     "dockerfile": "Dockerfile.dev",
+    //     "dockerfile": "Dockerfile.devc",
     //     "context": ".",
-    //     "args": {
-    //         "PROJECT_NAME": "EIA-Data-Automation",
-    //         "VENV_NAME": "R_ENV",
-    //         "R_VERSION_MAJOR": "4",
-    //         "R_VERSION_MINOR": "3",
-    //         "R_VERSION_PATCH": "1",
-    //         "CRAN_MIRROR": "https://cran.rstudio.com/",
-    //         "QUARTO_VER": "1.3.450"
-    //     }
     // },
-    "image": "docker.io/rkrispin/eia_data_refresh:dev.0.0.0.9000",
+    "image": "docker.io/rkrispin/eia_data_refresh:arm64.0.0.0.9001",
     "settings": {
-        "files.associations": {
-            "*.Rmd": "rmd"
-        }
+        "python.defaultInterpreterPath": "/opt/R_ENV/bin/python3",
+        "python.selectInterpreter": "/opt/R_ENV/bin/python3"
     },
     "customizations": {
         "vscode": {
@@ -46,6 +36,5 @@
     },
     "remoteEnv": {
         "EIA_API_KEY": "${localEnv:EIA_API_KEY}"
-    },
-    "postCreateCommand": "radian"
+    }
 }

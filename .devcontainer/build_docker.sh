@@ -9,14 +9,14 @@ docker build . -f Dockerfile.dev \
                --build-arg R_VERSION_MAJOR=4 \
                --build-arg R_VERSION_MINOR=3 \
                --build-arg R_VERSION_PATCH=1 \
-                --build-arg DEBIAN_FRONTEND=noninteractive \
-                 --build-arg CRAN_MIRROR="https://cran.rstudio.com/" \
-               --build-arg QUARTO_VER="1.3.450" \
-               -t rkrispin/eia_data_refresh:arm64.0.0.0.9000
+               --build-arg DEBIAN_FRONTEND=noninteractive \
+                --build-arg CRAN_MIRROR="https://cran.rstudio.com/" \
+               --build-arg QUARTO_VER=$QUARTO_VER \
+               -t rkrispin/eia_data_refresh:arm64.0.0.0.9001
 
 if [[ $? = 0 ]] ; then
 echo "Pushing docker..."
-docker push rkrispin/eia_data_refresh:arm64.0.0.0.9000
+docker push rkrispin/eia_data_refresh:arm64.0.0.0.9001
 else
 echo "Docker build failed"
 fi

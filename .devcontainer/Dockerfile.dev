@@ -92,14 +92,13 @@ RUN Rscript ./settings/install_packages.R
 
 # Installing Quarto
 RUN bash ./settings/install_quarto.sh $QUARTO_VER
-COPY .Rprofile /root/
 
 # Step 5 - Set Python Environment and install radian
-RUN python3 -m venv /opt/$VENV_NAME  \
-    && export PATH=/opt/$VENV_NAME/bin:$PATH \
-    && echo "source /opt/$VENV_NAME/bin/activate" >> ~/.bashrc
+COPY install_requirements.sh ./settings/
+RUN bash ./settings/install_requirements.sh $VENV_NAME
 
-RUN pip3 install -r ./settings/requirements.txt
+COPY .Rprofile /
+RUN echo "alias r='radian --profile=/.Rprofile'" >> ~/.bashrc
 
 
 
