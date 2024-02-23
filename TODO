@@ -3,3 +3,6 @@ Python data pipeline
 - Read the json file
 - Build ETL
 - Drop the metadata index
+
+Github Actions
+- Update the user name and email to variables
