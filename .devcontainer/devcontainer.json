@@ -4,7 +4,7 @@
     //     "dockerfile": "Dockerfile.devc",
     //     "context": ".",
     // },
-    "image": "docker.io/rkrispin/eia_data_refresh:arm64.0.0.0.9002",
+    "image": "docker.io/rkrispin/eia_data_refresh:arm64.0.0.0.9003",
     "settings": {
         "python.defaultInterpreterPath": "/opt/R_ENV/bin/python3",
         "python.selectInterpreter": "/opt/R_ENV/bin/python3"
