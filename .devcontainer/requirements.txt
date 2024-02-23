@@ -8,3 +8,4 @@ requests
 plotly
 ipywidgets
 jupyter
+great_tables
