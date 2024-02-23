@@ -5,7 +5,7 @@ echo "Build the docker"
 docker build . -f Dockerfile.dev \
                --progress=plain \
                --build-arg PROJECT_NAME="EIA Data Automation" \
-               --build-arg VENV_NAME="R_ENV" \
+               --build-arg VENV_NAME="LINKEDIN_LEARNING" \
                --build-arg R_VERSION_MAJOR=4 \
                --build-arg R_VERSION_MINOR=3 \
                --build-arg R_VERSION_PATCH=1 \
