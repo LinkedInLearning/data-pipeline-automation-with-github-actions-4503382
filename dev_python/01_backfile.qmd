@@ -25,7 +25,7 @@ The data backfill process includes the following steps:
 ```{python}
 import eia_api as api
 import eia_etl as etl
-import eia_metadata as eia_meta
+import eia_data 
 import pandas as pd
 import numpy as np
 import requests
@@ -74,7 +74,7 @@ print(metadata.meta["endPeriod"])
 
 
 ```{python}
-start = datetime.datetime(2018, 7, 1, 1)
+start = datetime.datetime(2018, 7, 1, 8)
 # start = datetime.datetime(2024, 1, 1, 1)
 end = datetime.datetime(2024, 2, 18, 1)
 for i in series.index:
@@ -93,7 +93,7 @@ for i in series.index:
   ts_obj.drop("period", axis = 1, inplace= True)
   ts_obj = ts_obj.rename(columns= {"index": "period"})
 
-  meta_temp = eia_meta.create_metadata(data = ts_obj, start = start, end = end, type = "backfile")
+  meta_temp = eia_data.create_metadata(data = ts_obj, start = start, end = end, type = "backfile")
   meta_temp["index"] = 1
   meta_df = pd.DataFrame([meta_temp])
 
@@ -111,13 +111,18 @@ for i in series.index:
 
 ```{python}
 print(meta)
-
 # The initial pull has some missing values
-meta["success"] = True
+
+data.head()
+```
+
+```{python}
 # Save the data
-data.to_csv(data_path)
+meta["success"] = True
+d = eia_data.append_data(data_path = data_path, new_data = data, init = True, save = True)
+# Save the metadata
 meta["update"] = True
-m = eia_meta.append_metadata(meta_path = "../metadata/ciso_log_py.csv", meta = meta, save = True, init = True)
+m = eia_data.append_metadata(meta_path = "../metadata/ciso_log_py.csv", meta = meta, save = True, init = True)
 print(m)
 ```
 
