@@ -1,0 +1,28 @@
+---
+title: "EIA API - Data Backfill"
+format:
+  html:
+    code-fold: false
+---
+
+
+The goal of this doc is to execute an initial data pull of the hourly demand for California balancing authority subregion (CISO). This includes the following four independent system operators:
+
+- Pacific Gas and Electric (PGAE)
+- Southern California Edison (SCE)
+- San Diego Gas and Electric (SDGE)
+- Valley Electric Association (VEA)
+
+The data backfill process includes the following steps:
+
+- Setting parameters and pulling the data
+- Data quality checks
+- Saving the data and creating a log file
+
+## Load Libraries
+
+```{r}
+library(EIAapi)
+```
+
+
