@@ -12,20 +12,27 @@ cp -R ./python/data_refresh_py_files ./docs/data_refresh_python/
 
 echo "Finish"
 
-# p=$(pwd)
-# git config --global --add safe.directory $p
+p=$(pwd)
+git config --global --add safe.directory $p
 
-# echo "Finish"
-# p=$(pwd)
-# git config --global --add safe.directory $p
+echo "Finish"
+p=$(pwd)
+git config --global --add safe.directory $p
 
-# if [[ "$(git status --porcelain)" != "" ]]; then
-#     git config --global user.name 'RamiKrispin'
-#     git config --global user.email 'ramkrisp@umich.edu'
-#     git add csv/*
-#     git add metadata/*
-#     git commit -m "Auto update of the data"
-#     git push origin stg
-# else
-# echo "Nothing to commit..."
-# fi
+if [[ "$(git status --porcelain)" != "" ]]; then
+    quarto render dashboard_py/index.qmd
+    cp dashboard_py/index.html docs/index.html
+    rm -rf docs/index_files
+    cp -R dashboard_py/index_files/ docs/
+    rm dashboard_py/index.html
+    rm -rf dashboard_py/index_files
+    git config --global user.name 'RamiKrispin'
+    git config --global user.email 'ramkrisp@umich.edu'
+    git add csv/*
+    git add metadata/*
+    git add docs/*
+    git commit -m "Auto update of the data"
+    git push origin stg
+else
+echo "Nothing to commit..."
+fi
