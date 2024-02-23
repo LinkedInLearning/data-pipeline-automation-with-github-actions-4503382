@@ -20,11 +20,10 @@ The data backfill process includes the following steps:
 - Saving the data and creating a log file
 
 
-## Load libraries
+## Load Libraries
 
 ```{python}
 import eia_api as api
-import eia_etl as etl
 import eia_data 
 import pandas as pd
 import numpy as np

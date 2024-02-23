@@ -10,7 +10,6 @@ jupyter: python3
 
 ```{python}
 import eia_api as api
-import eia_etl as etl
 import eia_data 
 import pandas as pd
 import numpy as np
