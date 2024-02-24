@@ -16,4 +16,4 @@ jobs:
       - name: Data Refresh
         run: bash ./python/data_refresh_py.sh "RamiKrispin" "ramkrisp@umich.edu"
         env:
-          API_KEY: ${{ secrets.EIA_API_KEY }}
+          EIA_API_KEY: ${{ secrets.EIA_API_KEY }}
