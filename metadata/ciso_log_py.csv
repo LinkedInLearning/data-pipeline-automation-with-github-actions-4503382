@@ -1,13 +1,5 @@
 index,parent,subba,time,start,end,start_act,end_act,start_match,end_match,n_obs,na,type,update,success,comments
-1,CISO,PGAE,2024-02-23 03:32:21.312337+00:00,2018-07-01 08:00:00,2024-02-18 01:00:00,2018-07-01 08:00:00,2024-02-18 01:00:00,True,True,49386,98,backfile,True,True,Missing values were found; 
-1,CISO,SCE,2024-02-23 03:32:36.118749+00:00,2018-07-01 08:00:00,2024-02-18 01:00:00,2018-07-01 08:00:00,2024-02-18 01:00:00,True,True,49386,98,backfile,True,True,Missing values were found; 
-1,CISO,SDGE,2024-02-23 03:32:51.011954+00:00,2018-07-01 08:00:00,2024-02-18 01:00:00,2018-07-01 08:00:00,2024-02-18 01:00:00,True,True,49386,98,backfile,True,True,Missing values were found; 
-1,CISO,VEA,2024-02-23 03:33:06.089176+00:00,2018-07-01 08:00:00,2024-02-18 01:00:00,2018-07-01 08:00:00,2024-02-18 01:00:00,True,True,49386,98,backfile,True,True,Missing values were found; 
-2,CISO,PGAE,2024-02-23 03:34:54.866756+00:00,2024-02-18 02:00:00,2024-02-22 08:00:00,2024-02-18 02:00:00,2024-02-22 08:00:00,True,True,103,0,refresh,True,True,
-2,CISO,SCE,2024-02-23 03:34:56.421798+00:00,2024-02-18 02:00:00,2024-02-22 08:00:00,2024-02-18 02:00:00,2024-02-22 08:00:00,True,True,103,0,refresh,True,True,
-2,CISO,SDGE,2024-02-23 03:34:57.735037+00:00,2024-02-18 02:00:00,2024-02-22 08:00:00,2024-02-18 02:00:00,2024-02-22 08:00:00,True,True,103,0,refresh,True,True,
-2,CISO,VEA,2024-02-23 03:34:59.082815+00:00,2024-02-18 02:00:00,2024-02-22 08:00:00,2024-02-18 02:00:00,2024-02-22 08:00:00,True,True,103,0,refresh,True,True,
-3,CISO,PGAE,2024-02-23 04:07:46.140923+00:00,2024-02-22 09:00:00,2024-02-22 08:00:00,,,,,,,refresh,False,False,"No new data is available; The data refresh failed, please check the log; "
-3,CISO,SCE,2024-02-23 04:07:46.141964+00:00,2024-02-22 09:00:00,2024-02-22 08:00:00,,,,,,,refresh,False,False,"No new data is available; The data refresh failed, please check the log; "
-3,CISO,SDGE,2024-02-23 04:07:46.143239+00:00,2024-02-22 09:00:00,2024-02-22 08:00:00,,,,,,,refresh,False,False,"No new data is available; The data refresh failed, please check the log; "
-3,CISO,VEA,2024-02-23 04:07:46.144173+00:00,2024-02-22 09:00:00,2024-02-22 08:00:00,,,,,,,refresh,False,False,"No new data is available; The data refresh failed, please check the log; "
+1,CISO,PGAE,2024-02-24 19:41:53.318830+00:00,2018-07-01 08:00:00,2024-02-18 01:00:00,2018-07-01 08:00:00,2024-02-18 01:00:00,True,True,49386,98,backfill,True,True,Missing values were found; 
+1,CISO,SCE,2024-02-24 19:42:08.307761+00:00,2018-07-01 08:00:00,2024-02-18 01:00:00,2018-07-01 08:00:00,2024-02-18 01:00:00,True,True,49386,98,backfill,True,True,Missing values were found; 
+1,CISO,SDGE,2024-02-24 19:42:25.350882+00:00,2018-07-01 08:00:00,2024-02-18 01:00:00,2018-07-01 08:00:00,2024-02-18 01:00:00,True,True,49386,98,backfill,True,True,Missing values were found; 
+1,CISO,VEA,2024-02-24 19:42:40.175097+00:00,2018-07-01 08:00:00,2024-02-18 01:00:00,2018-07-01 08:00:00,2024-02-18 01:00:00,True,True,49386,98,backfill,True,True,Missing values were found; 
