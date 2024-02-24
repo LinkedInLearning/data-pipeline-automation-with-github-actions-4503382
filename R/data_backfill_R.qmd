@@ -19,10 +19,81 @@ The data backfill process includes the following steps:
 - Data quality checks
 - Saving the data and creating a log file
 
-## Load Libraries
+## Load Libraries and Functions
 
 ```{r}
+library(dplyr)
 library(EIAapi)
+library(jsonlite)
+library(gt)
+source("./R/eia_data.R")
 ```
 
 
+```{r}
+meta_json <- read_json(path = "./metadata/series.json")
+s <- meta_json[[1]]
+series <- lapply(1:length(s), function(i) {
+    return(data.frame(
+        parent_id = s[[i]]$parent_id,
+        parent_name = s[[i]]$parent_name,
+        subba_id = s[[i]]$subba_id,
+        subba_name = s[[i]]$subba_name
+    ))
+}) |>
+    bind_rows()
+api_path <- meta_json[[2]]
+```
+
+
+```{r}
+facets_template <- list(
+    parent = NULL,
+    subba = NULL
+)
+
+start <- as.POSIXct("2018-7-01 8:00:00")
+end <- as.POSIXct("2024-2-18 0:00:00")
+attr(start, "tzone") <- "UTC"
+attr(end, "tzone") <- "UTC"
+
+offset <- 2250
+
+eia_api_key <- Sys.getenv("EIA_API_KEY")
+
+meta_path <- "../metadata/ciso_log_R.csv"
+data_path <- "../csv/ciso_grid_R.csv"
+```
+
+
+```{r}
+metadata <- eia_metadata(api_key = eia_api_key, api_path = api_path)
+print(names(metadata))
+
+print(metadata$startPeriod)
+print(metadata$endPeriod)
+
+```
+
+
+```{r}
+for (i in 1:nrow(series)) {
+    facets <- facets_template
+    facets["parent"] <- series[i, "parent_id"]
+    facets["subba"] <- series[i, "subba_id"]
+    print(facets)
+
+    temp <- eia_backfill(
+        start = start,
+        end = end,
+        offset = offset,
+        api_key = eia_api_key,
+        api_path = paste(api_path, "data", sep = ""),
+        facets = facets
+    )
+    index <- seq.POSIXt(from = start, to = end, by = "hour")
+    ts_obj <- data.frame(period = index) |>
+        left_join(temp, by = c("period" = "time"))
+}
+
+```
