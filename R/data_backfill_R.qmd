@@ -94,6 +94,8 @@ for (i in 1:nrow(series)) {
     index <- seq.POSIXt(from = start, to = end, by = "hour")
     ts_obj <- data.frame(period = index) |>
         left_join(temp, by = c("period" = "time"))
+
+    meta_temp <- create_metadata(data = ts_obj, start = start, end = end, type = "backfill")
 }
 
 ```

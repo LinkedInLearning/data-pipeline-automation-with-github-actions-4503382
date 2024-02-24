@@ -93,28 +93,38 @@ create_metadata <- function(data, start, end, type) {
         comments = ""
     )
     if (!is.null(data)) {
-        meta["parent"] <- unique(data$parent)
-        meta["subba"] <- unique(data$subba)
-        meta["start_act"] <- min(data$period)
-        meta["end_act"] <- max(data$period)
-        meta["start_match"] <- ifelse(min(data$period) == start, TRUE, FALSE)
-        meta["end_match"] <- ifelse(max(data$period) == end, TRUE, FALSE)
+        d <- data |> dplyr::filter(!is.na(value))
+        meta["parent"] <- unique(d$parent)
+        meta["subba"] <- unique(d$subba)
+        meta["start_act"] <- min(d$period)
+        meta["end_act"] <- max(d$period)
+        meta["start_match"] <- ifelse(min(d$period) == start, TRUE, FALSE)
+        meta["end_match"] <- ifelse(max(d$period) == end, TRUE, FALSE)
         meta["n_obs"] <- nrow(data)
         meta["na"] <- sum(is.na(data$value))
-        if (meta["start_match"] && meta["end_match"] && meta["type"] == "refresh" && meta["na"] == 0) {
-            meta["success"] <- TRUE
-        } else {
-            meta["success"] <- FALSE
+
+        if (is.numeric(meta$start_act)) {
+            meta$start_act <- as.POSIXct(meta$start_act)
         }
 
-        if (!meta["start_match"]) {
+        if (is.numeric(meta$end_act)) {
+            meta$end_act <- as.POSIXct(meta$end_act)
+        }
+
+        if (meta$start_match && meta$end_match && meta$type == "refresh" && meta$na == 0) {
+            meta$success <- TRUE
+        } else {
+            meta$success <- FALSE
+        }
+
+        if (!meta$start_match) {
             meta["comments"] <- paste(meta["comments"], "The start argument does not match the actual; ", sep = "")
         }
-        if (!meta["end_match"]) {
+        if (!meta$end_match) {
             meta["comments"] <- paste(meta["comments"], "The end argument does not match the actual; ", sep = "")
         }
 
-        if (meta["na"] != 0) {
+        if (meta$na != 0) {
             meta["comments"] <- paste(meta["comments"], "Missing values were found; ", sep = "")
         }
     } else {
