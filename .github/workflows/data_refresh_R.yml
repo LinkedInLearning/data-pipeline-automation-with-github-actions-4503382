@@ -1,0 +1,19 @@
+name: Data Refresh - R (Docker)
+
+on:
+  schedule:
+    - cron: "0 */1 * * *"
+jobs:
+  refresh-the-dashboard:
+    runs-on: ubuntu-22.04
+    container:
+      image: docker.io/rkrispin/eia_data_refresh:0.0.0.9004
+    steps:
+      - name: checkout_repo
+        uses: actions/checkout@v3
+        with:
+          ref: "stg"
+      - name: Data Refresh
+        run: bash ./R/data_refresh_R.sh "RamiKrispin" "ramkrisp@umich.edu"
+        env:
+          EIA_API_KEY: ${{ secrets.EIA_API_KEY }}

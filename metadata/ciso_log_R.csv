@@ -1,0 +1,5 @@
+"index","parent","subba","time","start","end","start_act","end_act","start_match","end_match","n_obs","na","type","update","success","comments"
+1,"CISO","PGAE",2024-02-24 22:33:48.207291,2018-07-01 08:00:00,2024-02-18,2018-07-01 08:00:00,2024-02-18,TRUE,TRUE,49385,98,"backfill",TRUE,TRUE,"Missing values were found; "
+1,"CISO","SCE",2024-02-24 22:34:08.869349,2018-07-01 08:00:00,2024-02-18,2018-07-01 08:00:00,2024-02-18,TRUE,TRUE,49385,98,"backfill",TRUE,TRUE,"Missing values were found; "
+1,"CISO","SDGE",2024-02-24 22:34:29.77824,2018-07-01 08:00:00,2024-02-18,2018-07-01 08:00:00,2024-02-18,TRUE,TRUE,49385,98,"backfill",TRUE,TRUE,"Missing values were found; "
+1,"CISO","VEA",2024-02-24 22:34:49.028226,2018-07-01 08:00:00,2024-02-18,2018-07-01 08:00:00,2024-02-18,TRUE,TRUE,49385,98,"backfill",TRUE,TRUE,"Missing values were found; "

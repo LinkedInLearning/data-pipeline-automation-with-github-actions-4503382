@@ -1,11 +1,11 @@
 # Setting an R environment from scratch 
 # Step 1 - Import base image
-FROM arm64v8/ubuntu:22.04
+FROM ubuntu:22.04
 
 # Step 2 - Set arguments and environment variables
 # Define arguments
-ARG PROJECT_NAME=PROJECT_NAME
-ARG VENV_NAME=VENV_NAME
+ARG PROJECT_NAME="EIA_DATA_PIPELINE"
+ARG VENV_NAME="LINKEDIN_LEARNING"
 ARG R_VERSION_MAJOR=4
 ARG R_VERSION_MINOR=3
 ARG R_VERSION_PATCH=1
@@ -92,14 +92,13 @@ RUN Rscript ./settings/install_packages.R
 
 # Installing Quarto
 RUN bash ./settings/install_quarto.sh $QUARTO_VER
-COPY .Rprofile /root/
 
 # Step 5 - Set Python Environment and install radian
-RUN python3 -m venv /opt/$VENV_NAME  \
-    && export PATH=/opt/$VENV_NAME/bin:$PATH \
-    && echo "source /opt/$VENV_NAME/bin/activate" >> ~/.bashrc
+COPY install_requirements.sh ./settings/
+RUN bash ./settings/install_requirements.sh $VENV_NAME
 
-RUN pip3 install -r ./settings/requirements.txt
+COPY .Rprofile /
+RUN echo "alias r='radian --profile=/.Rprofile'" >> ~/.bashrc
 
 
 

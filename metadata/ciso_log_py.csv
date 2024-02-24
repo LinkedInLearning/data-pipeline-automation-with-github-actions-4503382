@@ -1,0 +1,5 @@
+index,parent,subba,time,start,end,start_act,end_act,start_match,end_match,n_obs,na,type,update,success,comments
+1,CISO,PGAE,2024-02-24 22:36:08.647000+00:00,2018-07-01 08:00:00,2024-02-18 01:00:00,2018-07-01 08:00:00,2024-02-18 01:00:00,True,True,49386,98,backfill,True,True,Missing values were found; 
+1,CISO,SCE,2024-02-24 22:36:23.485530+00:00,2018-07-01 08:00:00,2024-02-18 01:00:00,2018-07-01 08:00:00,2024-02-18 01:00:00,True,True,49386,98,backfill,True,True,Missing values were found; 
+1,CISO,SDGE,2024-02-24 22:36:38.218452+00:00,2018-07-01 08:00:00,2024-02-18 01:00:00,2018-07-01 08:00:00,2024-02-18 01:00:00,True,True,49386,98,backfill,True,True,Missing values were found; 
+1,CISO,VEA,2024-02-24 22:36:53.086529+00:00,2018-07-01 08:00:00,2024-02-18 01:00:00,2018-07-01 08:00:00,2024-02-18 01:00:00,True,True,49386,98,backfill,True,True,Missing values were found; 

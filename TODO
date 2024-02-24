@@ -1,0 +1,8 @@
+Python data pipeline
+- Update the docker
+- Read the json file
+- Build ETL
+- Drop the metadata index
+
+Github Actions
+- Update the user name and email to variables
