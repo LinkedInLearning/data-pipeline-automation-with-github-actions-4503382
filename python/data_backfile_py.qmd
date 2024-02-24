@@ -114,9 +114,9 @@ data.head()
 
 ```{python}
 # Save the data
-meta["success"] = True
 d = eia_data.append_data(data_path = data_path, new_data = data, init = True, save = True)
 # Save the metadata
+meta["success"] = True
 meta["update"] = True
 m = eia_data.append_metadata(meta_path = "../metadata/ciso_log_py.csv", meta = meta, save = True, init = True)
 print(m)
@@ -130,7 +130,7 @@ We will use Plotly to visualize the series:
 ```{python}
 d = data.sort_values(by = ["subba", "period"])
 
-p = px.line(data, x="period", y="value", color="subba")
+p = px.line(d, x="period", y="value", color="subba")
 
 p.show()
 ```

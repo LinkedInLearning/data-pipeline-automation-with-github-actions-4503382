@@ -1,5 +1,5 @@
 ---
-title: "EIA API - Data Backfill"
+title: "EIA API - Data Refrsh"
 format:
   html:
     code-fold: false
@@ -35,9 +35,6 @@ facets_template = {
   "subba" : None
 }
 
-start = datetime.datetime(2018, 6, 20, 1)
-end = datetime.datetime(2024, 2, 18, 1)
-
 offset = 2250
 
 eia_api_key = os.getenv('EIA_API_KEY')
@@ -47,18 +44,20 @@ data_path = "../csv/ciso_grid_py.csv"
 ```
 
 ```{python}
-api_metadata = api.eia_metadata(api_key = eia_api_key, api_path = api_path)
+# api_metadata = api.eia_metadata(api_key = eia_api_key, api_path = api_path)
 
 
-print(api_metadata.meta["endPeriod"])
-end = pd.to_datetime(api_metadata.meta["endPeriod"])
-print(end)
+# print(api_metadata.meta["endPeriod"])
+# end = pd.to_datetime(api_metadata.meta["endPeriod"])
+# print(end)
 ```
 
 
 
 ```{python}
 meta_obj = eia_data.get_metadata(api_key = eia_api_key, api_path = api_path, meta_path = meta_path, series = series)
+
+gt.GT(meta_obj.request_meta,)
 ```
 
 ```{python}
@@ -98,6 +97,7 @@ for i in m.index:
 
 
     if meta_temp["success"]:
+        print("Append the new data")
         d = eia_data.append_data(data_path = data_path, new_data = ts_obj, save = True)
         meta_temp["update"] = True
     else:
