@@ -89,7 +89,7 @@ for i in series.index:
   ts_obj.drop("period", axis = 1, inplace= True)
   ts_obj = ts_obj.rename(columns= {"index": "period"})
 
-  meta_temp = eia_data.create_metadata(data = ts_obj, start = start, end = end, type = "backfile")
+  meta_temp = eia_data.create_metadata(data = ts_obj, start = start, end = end, type = "backfill")
   meta_temp["index"] = 1
   meta_df = pd.DataFrame([meta_temp])
 
