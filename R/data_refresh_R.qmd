@@ -1,5 +1,5 @@
 ---
-title: "EIA API - Data Refrsh"
+title: "EIA API - Data Refrsh (R Version)"
 format:
   html:
     code-fold: false
