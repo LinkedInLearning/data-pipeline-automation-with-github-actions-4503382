@@ -1,0 +1,45 @@
+--- 
+title: "California Independent System Operator Hourly Demand"
+subtitle: "LinkedIn Learning"
+format: dashboard
+--- 
+
+```{r}
+library(dplyr)
+library(plotly)
+
+```
+
+```{r}
+data_path <- "../csv/ciso_grid_R.csv"
+data <- readr::read_csv(file = data_path, col_types = readr::cols(
+    period = readr::col_datetime(format = ""),
+    subba = readr::col_character(),
+    subba_name = readr::col_character(),
+    parent = readr::col_character(),
+    parent_name = readr::col_character(),
+    value = readr::col_double(),
+    value_units = readr::col_character()
+))
+
+```
+
+
+
+
+
+## row
+
+```{r}
+#| title: Hourly Demand By Provider
+
+
+p <- plot_ly(
+    data = data,
+    x = ~period,
+    y = ~value,
+    color = ~subba
+)
+
+p
+```
