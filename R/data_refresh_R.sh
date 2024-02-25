@@ -20,7 +20,7 @@ p=$(pwd)
 git config --global --add safe.directory $p
 
 if [[ "$(git status --porcelain)" != "" ]]; then
-    quarto render dashboard_R/index.qmd
+    quarto render R/index.qmd
     git config --global user.name 'RamiKrispin'
     git config --global user.email 'ramkrisp@umich.edu'
     git add csv/*
