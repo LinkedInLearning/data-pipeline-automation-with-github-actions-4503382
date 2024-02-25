@@ -7,7 +7,7 @@ quarto render ./R/data_refresh_R.qmd --to html
 
 rm -rf docs/data_refresh_R/
 mkdir docs/data_refresh_R
-cp ./R/data_refresh_py.html ./docs/data_refresh_R/
+cp ./R/data_refresh_R.html ./docs/data_refresh_R/
 cp -R ./R/data_refresh_R_files ./docs/data_refresh_R/
 
 echo "Finish"
