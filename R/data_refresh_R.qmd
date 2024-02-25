@@ -8,6 +8,7 @@ format:
 ## Load libraries
 
 ```{r}
+#| label: load-libraries
 #| warning: false
 library(dplyr)
 library(EIAapi)
@@ -21,6 +22,7 @@ source("../R/eia_data.R")
 API Settings:
 
 ```{r}
+#| label: api settings
 meta_json <- read_json(path = "../metadata/series.json")
 s <- meta_json[[1]]
 series <- lapply(1:length(s), function(i) {
@@ -48,6 +50,7 @@ data_path <- "../csv/ciso_grid_R.csv"
 ```
 
 ```{r}
+#| label: metadata table
 #| warning: false
 meta_obj <- get_metadata(api_key = eia_api_key, api_path = api_path, meta_path = meta_path, series = series)
 
@@ -56,6 +59,7 @@ gt(meta_obj$request_meta)
 
 
 ```{r}
+#| label: update the data
 #| warning: false
 m <- meta_obj$request_meta
 index <- meta_obj$last_index + 1
@@ -115,10 +119,12 @@ for (i in 1:nrow(m)) {
 ```
 
 ```{r}
+#| label: new meta
 gt(meta_new)
 ```
 
 ```{r}
+#| label: update the metadata
 meta_updated <- append_metadata(meta_path = meta_path, new_meta = meta_new, save = TRUE, init = FALSE)
 ```
 
@@ -128,6 +134,7 @@ We will use Plotly to visualize the series:
 
 
 ```{r}
+#| label: plot new data
 if (!is.null(data)) {
     d <- data |> arrange(subba, period)
 
@@ -141,6 +148,7 @@ if (!is.null(data)) {
 
 
 ```{r}
+#| label: plot the series
 data <- readr::read_csv(file = data_path, col_types = readr::cols(
     period = readr::col_datetime(format = ""),
     subba = readr::col_character(),
