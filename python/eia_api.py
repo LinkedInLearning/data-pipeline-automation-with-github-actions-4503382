@@ -95,7 +95,7 @@ def eia_get(api_key,
     if frequency is None:
         fr = ""
     else:
-        fr = "&frequency=" + str(fr)
+        fr = "&frequency=" + str(frequency)
 
     url = "https://api.eia.gov/v2/" + api_path + "?data[]=value" + fc + s + e + l + o + fr          
 
