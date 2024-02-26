@@ -4,10 +4,10 @@
     //     "dockerfile": "Dockerfile.devc",
     //     "context": ".",
     // },
-    "image": "docker.io/rkrispin/eia_data_refresh:arm64.0.0.0.9003",
+    "image": "docker.io/rkrispin/eia_data_refresh:0.0.0.9004",
     "settings": {
-        "python.defaultInterpreterPath": "/opt/R_ENV/bin/python3",
-        "python.selectInterpreter": "/opt/R_ENV/bin/python3"
+        "python.defaultInterpreterPath": "/opt/LINKEDIN_LEARNING/bin/python3",
+        "python.selectInterpreter": "/opt/LINKEDIN_LEARNING/bin/python3"
     },
     "customizations": {
         "vscode": {
