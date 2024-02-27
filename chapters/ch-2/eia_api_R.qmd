@@ -15,13 +15,7 @@ The EIAapi library provides a set of functions to query data from the EIA API V2
 
 We will continue with the same example we used before - the hourly demand of electricity for balancing authority subregion PGAE. As before, we will use the API dashboard to extract the GET request:
 
-<figure>
-
-<img src="./images/query-detail.png" width="100%" align="center"/></a>
-
-<figcaption>Figure 1 - The GET request details for balancing authority subregion PGAE</figcaption>
-
-</figure>
+<img src="./images/query-detail.png" width="140%" align="center"/>
 
 ```{r}
 library(EIAapi)
