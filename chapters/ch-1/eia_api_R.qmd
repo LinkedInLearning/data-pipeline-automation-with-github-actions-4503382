@@ -83,6 +83,10 @@ df1 <- df1 |>
 head(df1)
 ```
 
+## API Limitation
+
+Let's plot the series:
+
 ```{r}
 plot_ly(data = df1, x = ~ index , y = ~ value, 
         type = "scatter", mode = "lines")
@@ -110,9 +114,13 @@ head(df2)
 plot_ly(data = df2, x = ~index, y = ~value, type = "scatter", mode = "lines")
 ```
 
+## Handling A Large Data Request
+
+When we have to pull a series with a number of observations that exceed the API limitation of 5000 observations per call, use the `eia_backfill` function. The function splits the request into multiple small requests, where the `offset` argument defines the size of each request. It is recommended not to use an offset larger than 2500 observations. For example, let's pull data since July 1st, 2018:
+
 ```{r}
 df3 <- eia_backfill(
-    start = as.POSIXct("2018-07-01 00:00:00", tz = "UTC"),
+    start = as.POSIXct("2018-07-01 08:00:00", tz = "UTC"),
     end =  as.POSIXct("2024-02-24 00:00:00", tz = "UTC"),
     offset = 2250,
     api_key = api_key,
