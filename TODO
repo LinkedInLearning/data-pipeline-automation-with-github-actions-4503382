@@ -9,3 +9,6 @@ eia_api.py
 
 Github Actions
 - Update the user name and email to variables
+
+Docker
+- Set the prod image - data-pipeline-automation-with-github-actions
