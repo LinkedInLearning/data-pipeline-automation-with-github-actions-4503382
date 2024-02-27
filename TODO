@@ -4,5 +4,8 @@ Python data pipeline
 - Build ETL
 - Drop the metadata index
 
+eia_api.py
+- Add documentation
+
 Github Actions
 - Update the user name and email to variables
