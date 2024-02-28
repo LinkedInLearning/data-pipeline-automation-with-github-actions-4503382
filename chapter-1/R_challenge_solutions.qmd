@@ -1,0 +1,153 @@
+---
+title: "Chapter 1 Challenge Solution (R)"
+format:
+  html:
+    code-fold: false
+---
+
+## Load libraries
+
+```{r}
+library(EIAapi)
+library(dplyr)
+library(lubridate)
+library(plotly)
+```
+
+## Question 1
+
+Extract from the EIA dashboard the metadata of the San Diego Gas and Electric balancing authority subregion (SUBBA) under California Independent System Operator parent (PARENT). This series is under the `Hourly Demand By Subregion` sub-category.
+
+## Solution
+
+On the API Dashboard select the following route:
+
+-   Electricity
+-   Electric Power Operation (Daily and Hourly)
+-   Hourly Demand by Subregion
+
+Once the filters loaded, go to facets and you can either use directly the `SUBBA` filter and find the San Diego Gas and Electric balancing authority subregion (out of the 83 series), or select first California Independent System Operator on the `PARENT` filter and then it narrow down the options the four sub-regions under this parent.
+
+If you go with the last option, you should expect to have the following API URL:
+
+```         
+https://api.eia.gov/v2/electricity/rto/region-sub-ba-data/data/?frequency=hourly&data[0]=value&facets[subba][]=SDGE&sort[0][column]=period&sort[0][direction]=desc&offset=0&length=5000
+```
+
+Which enables you to extract the API route path (as we saw before) - `electricity/rto/region-sub-ba-data/data`
+
+In addition, you can extract from the header the facets argument for the GET request:
+
+``` json
+{
+    "frequency": "hourly",
+    "data": [
+        "value"
+    ],
+    "facets": {
+        "parent": [
+            "CISO"
+        ],
+        "subba": [
+            "SDGE"
+        ]
+    },
+    "start": null,
+    "end": null,
+    "sort": [
+        {
+            "column": "period",
+            "direction": "desc"
+        }
+    ],
+    "offset": 0,
+    "length": 5000
+}
+```
+
+The link to the filtered dashboard is available [here](https://www.eia.gov/opendata/browser/electricity/rto/region-sub-ba-data?frequency=hourly&data=value;&facets=subba;&subba=SDGE;&sortColumn=period;&sortDirection=desc;).
+
+## Question 2
+
+Set a GET request to pull observations between Jan 1st and Jan 31st 2024 with R/Python
+
+## Solution
+
+Using the information we pulled from the API dashboard we can set the GET request parameters:
+
+```{r}
+api_key <- Sys.getenv("EIA_API_KEY")
+
+api_path <- "electricity/rto/region-sub-ba-data/data"
+
+frequency <- "hourly"
+
+facets <- list(
+    parent = "CISO",
+    subba = "SDGE"
+)
+
+start <- "2024-01-01T01"
+end <- "2024-01-31T23"
+```
+
+```{r}
+df1 <- eia_get(
+    api_key = api_key,
+    api_path = api_path,
+    frequency = frequency,
+    facets = facets,
+    start = start,
+    end = end
+)
+```
+
+Let's reformat the `period` variable into a time object:
+
+```{r}
+df1 <- df1 |>
+    mutate(index = ymd_h(period, tz = "UTC")) |>
+    select(index, everything()) |>
+    arrange(index)
+
+
+head(df1)
+```
+
+and plot the series:
+
+```{r}
+plot_ly(data = df1, x = ~index, y = ~value, type = "scatter", mode = "lines")
+```
+
+## Question 3
+
+Use the `eia_backfill` function to pull data from Jan 1st 2020 to Feb 1st 2024
+
+## Solution
+
+Let's use the `eia_backfill` function to pull data between Jan 1st 2020 and Feb 1st 2024:
+
+```{r}
+start = as.POSIXct("2020-01-01 00:00:00", tz = "UTC")
+end = as.POSIXct("2024-02-01 00:00:00", tz = "UTC")
+offset = 2000
+
+df2 <- eia_backfill(
+    start =start,
+    end = end,
+    offset = offset,
+    api_key = api_key,
+    api_path = api_path,
+    facets = facets
+)
+
+```
+
+```{r}
+str(df2)
+```
+
+```{r}
+plot_ly(data = df2, x = ~time, y = ~value, type = "scatter", mode = "lines")
+```
