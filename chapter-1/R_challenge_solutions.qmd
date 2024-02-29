@@ -84,7 +84,7 @@ frequency <- "hourly"
 
 facets <- list(
     parent = "CISO",
-    subba = "SDGE"
+    subba = "SDGE "
 )
 
 start <- "2024-01-01T01"
