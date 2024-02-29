@@ -1,0 +1,13 @@
+name: Hello World!
+
+on:
+    schedule:
+        - cron: "0 */1 * * *"
+jobs:
+    hello-world:
+        runs-on: ubuntu-22.04
+        container:
+            image: rkrispin/data-pipeline-automation-with-github-actions:prod
+        steps:
+            - name: print-hello-world
+              run: echo "Hello World!"
