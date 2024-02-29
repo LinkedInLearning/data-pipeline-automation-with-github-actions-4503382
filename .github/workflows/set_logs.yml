@@ -1,0 +1,18 @@
+name: Set Logs
+
+on:
+  schedule:
+    - cron: "0 */1 * * *"
+jobs:
+  hello-world:
+    runs-on: ubuntu-22.04
+    container:
+      image: rkrispin/data-pipeline-automation-with-github-actions:prod
+    steps:
+      - name: checkout_repo
+        uses: actions/checkout@v3
+        with:
+          ref: "main"
+      - name: set-logs
+        run: bash ./dev/set_logs.sh
+      
