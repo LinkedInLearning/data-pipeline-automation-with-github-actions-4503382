@@ -1,11 +1,11 @@
-Python data pipeline
-- Update the docker
-- Read the json file
-- Build ETL
-- Drop the metadata index
+Tools
+- Setting R environment
+- Setting Python environment
+- Set environment variable
 
 eia_api.py
 - Add documentation
+
 
 Github Actions
 - Update the user name and email to variables
