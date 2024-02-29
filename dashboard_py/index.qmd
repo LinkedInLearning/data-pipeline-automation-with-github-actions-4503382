@@ -10,17 +10,23 @@ import plotly.express as px
 import pandas as pd
 import os
 import datetime
+import great_tables as gt
 ```
 
 ```{python}
 data_path = "../csv/ciso_grid_py.csv"
 data = pd.read_csv(data_path)
-
-
 data["period"] = pd.to_datetime(data["period"])
 
 end_date = data["period"].max()
 start_date = end_date -  datetime.timedelta(days = 30)
+
+
+meta_path = "../metadata/ciso_log_py.csv"
+meta = pd.read_csv(meta_path)
+
+
+
 
 ```
 
@@ -28,7 +34,7 @@ start_date = end_date -  datetime.timedelta(days = 30)
 
 
 
-## row
+## row {.tabset}
 
 ```{python}
 #| title: Hourly Demand By Provider 
@@ -68,4 +74,10 @@ p = p.update_layout(
 
 
 p.show()
+```
+
+```{python}
+#| title: Metadata
+
+gt.GT(meta.tail(20))
 ```
