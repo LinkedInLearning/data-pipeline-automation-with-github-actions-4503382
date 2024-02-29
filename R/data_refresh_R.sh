@@ -11,18 +11,13 @@ cp ./R/data_refresh_R.html ./docs/data_refresh_R/
 cp -R ./R/data_refresh_R_files ./docs/data_refresh_R/
 
 echo "Finish"
-
-p=$(pwd)
-git config --global --add safe.directory $p
-
-echo "Finish"
 p=$(pwd)
 git config --global --add safe.directory $p
 
 if [[ "$(git status --porcelain)" != "" ]]; then
     quarto render R/index.qmd
-    git config --global user.name 'RamiKrispin'
-    git config --global user.email 'ramkrisp@umich.edu'
+    git config --global user.name $USER_NAME
+    git config --global user.email $USER_EMAIL
     git add csv/*
     git add metadata/*
     git add docs/*

@@ -11,13 +11,10 @@ cp ./python/data_refresh_py.html ./docs/data_refresh_python/
 cp -R ./python/data_refresh_py_files ./docs/data_refresh_python/
 
 echo "Finish"
-
 p=$(pwd)
 git config --global --add safe.directory $p
 
-echo "Finish"
-p=$(pwd)
-git config --global --add safe.directory $p
+
 
 if [[ "$(git status --porcelain)" != "" ]]; then
     quarto render dashboard_py/index.qmd
@@ -26,8 +23,8 @@ if [[ "$(git status --porcelain)" != "" ]]; then
     cp -R dashboard_py/index_files/ docs/
     rm dashboard_py/index.html
     rm -rf dashboard_py/index_files
-    git config --global user.name 'RamiKrispin'
-    git config --global user.email 'ramkrisp@umich.edu'
+    git config --global user.name $USER_NAME
+    git config --global user.email $USER_EMAIL
     git add csv/*
     git add metadata/*
     git add docs/*
