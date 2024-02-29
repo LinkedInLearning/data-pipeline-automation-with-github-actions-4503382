@@ -22,7 +22,7 @@ if [[ "$(git status --porcelain)" != "" ]]; then
     git add metadata/*
     git add docs/*
     git commit -m "Auto update of the data"
-    git push origin stg
+    git push origin main
 else
 echo "Nothing to commit..."
 fi
