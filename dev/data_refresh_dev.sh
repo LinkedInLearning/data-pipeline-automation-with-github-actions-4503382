@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+BRANCH="main"
+
 source /opt/$VENV_NAME/bin/activate 
 
 echo "Starting Test"
@@ -16,7 +18,7 @@ if [[ "$(git status --porcelain)" != "" ]]; then
     git config --global user.email $USER_EMAIL
     git add dev/*
     git commit -m "Testing"
-    git push origin stg
+    git push origin $BRANCH
 else
 echo "Nothing to commit..."
 fi
