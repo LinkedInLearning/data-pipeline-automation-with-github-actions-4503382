@@ -2,7 +2,7 @@
 
 echo "Build the docker"
 
-docker build . -f Dockerfile.dev \
+docker build . -f Dockerfile \
                --progress=plain \
                --build-arg PROJECT_NAME="EIA Data Automation" \
                --build-arg VENV_NAME="LINKEDIN_LEARNING" \
@@ -12,11 +12,11 @@ docker build . -f Dockerfile.dev \
                --build-arg DEBIAN_FRONTEND=noninteractive \
                 --build-arg CRAN_MIRROR="https://cran.rstudio.com/" \
                --build-arg QUARTO_VER=$QUARTO_VER \
-               -t rkrispin/eia_data_refresh:0.0.0.9004
+               -t rkrispin/data-pipeline-automation-with-github-actions:prod
 
 if [[ $? = 0 ]] ; then
 echo "Pushing docker..."
-docker push rkrispin/eia_data_refresh:0.0.0.9004
+docker push rkrispin/data-pipeline-automation-with-github-actions:prod
 else
 echo "Docker build failed"
 fi

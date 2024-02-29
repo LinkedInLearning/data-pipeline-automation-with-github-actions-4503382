@@ -1,0 +1,150 @@
+---
+title: "Chapter 2 - EIA API - R Client"
+format:
+  html:
+    code-fold: false
+---
+
+In this section, we will see how query the EIA API with R using the EIAapi library.
+
+The EIAapi library provides a set of functions to query data from the EIA API V2. This includes the following functions:
+
+-   `eia_get` - to send GET request for data
+-   `eia_metadata` - to send GET request for metadata
+-   `eia_backfill` - to send a GET request for large data (more than 5000 observations)
+
+We will continue with the same example we used before - the hourly demand of electricity for balancing authority subregion PGAE. As before, we will use the API dashboard to extract the GET request:
+
+<img src="./images/query-detail.png" width="140%" align="center"/>
+
+```{r}
+library(EIAapi)
+library(dplyr)
+library(lubridate)
+library(plotly)
+```
+
+## Pulling Metadata from API
+
+Setting the api key and the api path to pull data:
+
+```{r}
+api_key <- Sys.getenv("EIA_API_KEY")
+
+api_meta_path <- "electricity/rto/region-sub-ba-data/"
+
+
+```
+
+Sending GET request for route metadata:
+
+```{r}
+eia_metadata(api_key = api_key, 
+             api_path = api_meta_path)
+```
+
+## Sending A Simple GET Request
+
+Setting a GET Request:
+
+```{r}
+api_key <- Sys.getenv("EIA_API_KEY")
+
+api_path <- "electricity/rto/region-sub-ba-data/data"
+
+frequency <- "hourly"
+
+facets <- list(
+    parent = "CISO",
+    subba = "PGAE"
+)
+
+```
+
+```{r}
+df1 <- eia_get(
+    api_key = api_key,
+    api_path = api_path,
+    frequency = frequency,
+    facets = facets 
+)
+```
+
+```{r}
+str(df1)
+```
+
+```{r}
+df1 <- df1 |>
+  mutate(index = ymd_h(period, tz = "UTC")) |>
+  select(index, everything()) |>
+  arrange(index)
+
+
+head(df1)
+```
+
+## API Limitations
+
+Let's plot the series:
+
+```{r}
+plot_ly(data = df1, x = ~ index , y = ~ value, 
+        type = "scatter", mode = "lines")
+```
+
+```{r}
+start = "2024-01-01T01"
+end = "2024-02-24T01"
+
+df2 <- eia_get(
+    api_key = api_key,
+    api_path = api_path,
+    frequency = frequency,
+    facets = facets,
+    start = start,
+    end = end
+)
+
+df2 <- df2 |>
+  mutate(index = ymd_h(period, tz = "UTC")) |>
+  select(index, everything()) |>
+  arrange(index)
+
+head(df2)
+```
+
+```{r}
+plot_ly(data = df2, x = ~index, y = ~value, type = "scatter", mode = "lines")
+```
+
+## Handling A Large Data Request
+
+When we have to pull a series with a number of observations that exceed the API limitation of 5000 observations per call, use the `eia_backfill` function. The function splits the request into multiple small requests, where the `offset` argument defines the size of each request. It is recommended not to use an offset larger than 2500 observations. For example, let's pull data since July 1st, 2018:
+
+```{r}
+# Pulling data between Jul 1st 2018 and Feb 24th 2024 
+start = as.POSIXct("2018-07-01 08:00:00", tz = "UTC")
+end =  as.POSIXct("2024-02-24 00:00:00", tz = "UTC")
+offset <- 2250
+
+df3 <- eia_backfill(
+    start = start,
+    end =  end,
+    offset = offset,
+    api_key = api_key,
+    api_path = api_path,
+    facets = facets
+)
+
+```
+
+```{r}
+head(df3)
+
+str(df3)
+```
+
+```{r}
+plot_ly(data = df3, x = ~time, y = ~value, type = "scatter", mode = "lines")
+```

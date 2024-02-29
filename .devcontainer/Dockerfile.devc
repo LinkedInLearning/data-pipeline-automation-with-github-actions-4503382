@@ -1,4 +1,0 @@
-FROM "docker.io/rkrispin/eia_data_refresh:dev.0.0.0.9000"
-
-COPY .Rprofile /
-RUN echo "alias r='radian --profile=/.Rprofile'" >> ~/.bashrc

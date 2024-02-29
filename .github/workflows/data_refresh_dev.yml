@@ -1,0 +1,21 @@
+name: Data Refresh - DEV (Docker)
+
+on:
+  schedule:
+    - cron: "0 */1 * * *"
+jobs:
+  refresh-the-dashboard:
+    runs-on: ubuntu-22.04
+    container:
+      image: rkrispin/data-pipeline-automation-with-github-actions:prod
+    steps:
+      - name: checkout_repo
+        uses: actions/checkout@v3
+        with:
+          ref: "stg"
+      - name: Data Refresh
+        run: bash ./dev/data_refresh_dev.sh
+        env:
+          EIA_API_KEY: ${{ secrets.EIA_API_KEY }}
+          USER_EMAIL: ${{ secrets.USER_EMAIL }}
+          USER_NAME: ${{ secrets.USER_NAME }}

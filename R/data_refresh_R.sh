@@ -7,7 +7,7 @@ quarto render ./R/data_refresh_R.qmd --to html
 
 rm -rf docs/data_refresh_R/
 mkdir docs/data_refresh_R
-cp ./R/data_refresh_py.html ./docs/data_refresh_R/
+cp ./R/data_refresh_R.html ./docs/data_refresh_R/
 cp -R ./R/data_refresh_R_files ./docs/data_refresh_R/
 
 echo "Finish"
@@ -20,7 +20,7 @@ p=$(pwd)
 git config --global --add safe.directory $p
 
 if [[ "$(git status --porcelain)" != "" ]]; then
-    quarto render dashboard_R/index.qmd
+    quarto render R/index.qmd
     git config --global user.name 'RamiKrispin'
     git config --global user.email 'ramkrisp@umich.edu'
     git add csv/*
