@@ -1,10 +1,6 @@
 {
     "name": "EIA Data Automation",
-    // "build": {
-    //     "dockerfile": "Dockerfile.devc",
-    //     "context": ".",
-    // },
-    "image": "docker.io/rkrispin/eia_data_refresh:0.0.0.9004",
+    "image": "rkrispin/data-pipeline-automation-with-github-actions:prod",
     "settings": {
         "python.defaultInterpreterPath": "/opt/LINKEDIN_LEARNING/bin/python3",
         "python.selectInterpreter": "/opt/LINKEDIN_LEARNING/bin/python3"
