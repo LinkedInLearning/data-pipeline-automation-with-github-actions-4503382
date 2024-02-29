@@ -15,4 +15,7 @@ jobs:
           ref: "main"
       - name: set-logs
         run: bash ./dev/set_logs.sh
+        env:
+          USER_EMAIL: ${{ secrets.USER_EMAIL }}
+          USER_NAME: ${{ secrets.USER_NAME }}
       
