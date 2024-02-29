@@ -2,7 +2,7 @@
 
 echo "Build the docker"
 
-docker build . -f Dockerfile.dev \
+docker build . -f Dockerfile \
                --progress=plain \
                --build-arg PROJECT_NAME="EIA Data Automation" \
                --build-arg VENV_NAME="LINKEDIN_LEARNING" \
