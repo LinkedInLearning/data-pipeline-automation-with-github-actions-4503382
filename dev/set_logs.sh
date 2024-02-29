@@ -3,7 +3,7 @@ BRANCH="main"
 
 
 # Save the current time into a log file
-date >> .dev/log.txt 
+date >> ./dev/log.txt 
 
 # Commit
 p=$(pwd)
