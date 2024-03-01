@@ -17,12 +17,12 @@ git config --global --add safe.directory $p
 
 
 if [[ "$(git status --porcelain)" != "" ]]; then
-    quarto render dashboard_py/index.qmd
-    cp dashboard_py/index.html docs/index.html
+    quarto render python/index.qmd
+    cp python/index.html docs/index.html
     rm -rf docs/index_files
-    cp -R dashboard_py/index_files/ docs/
-    rm dashboard_py/index.html
-    rm -rf dashboard_py/index_files
+    cp -R python/index_files/ docs/
+    rm python/index.html
+    rm -rf python/index_files
     git config --global user.name $USER_NAME
     git config --global user.email $USER_EMAIL
     git add csv/*
