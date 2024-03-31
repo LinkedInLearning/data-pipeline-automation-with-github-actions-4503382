@@ -1391,3 +1391,7 @@ index,parent,subba,time,start,end,start_act,end_act,start_match,end_match,n_obs,
 348,CISO,SCE,2024-03-31 00:23:04.118929+00:00,2024-03-29 08:00:00,2024-03-30 07:00:00,2024-03-29 08:00:00,2024-03-30 07:00:00,True,True,24.0,0.0,refresh,True,True,
 348,CISO,SDGE,2024-03-31 00:23:05.249791+00:00,2024-03-29 08:00:00,2024-03-30 07:00:00,2024-03-29 08:00:00,2024-03-30 07:00:00,True,True,24.0,0.0,refresh,True,True,
 348,CISO,VEA,2024-03-31 00:23:06.334290+00:00,2024-03-29 08:00:00,2024-03-30 07:00:00,2024-03-29 08:00:00,2024-03-30 07:00:00,True,True,24.0,0.0,refresh,True,True,
+349,CISO,PGAE,2024-03-31 12:08:15.622856+00:00,2024-03-30 08:00:00,2024-03-30 07:00:00,,,,,,,refresh,False,False,"No new data is available; The data refresh failed, please check the log; "
+349,CISO,SCE,2024-03-31 12:08:15.623799+00:00,2024-03-30 08:00:00,2024-03-30 07:00:00,,,,,,,refresh,False,False,"No new data is available; The data refresh failed, please check the log; "
+349,CISO,SDGE,2024-03-31 12:08:15.626057+00:00,2024-03-30 08:00:00,2024-03-30 07:00:00,,,,,,,refresh,False,False,"No new data is available; The data refresh failed, please check the log; "
+349,CISO,VEA,2024-03-31 12:08:15.627546+00:00,2024-03-30 08:00:00,2024-03-30 07:00:00,,,,,,,refresh,False,False,"No new data is available; The data refresh failed, please check the log; "
