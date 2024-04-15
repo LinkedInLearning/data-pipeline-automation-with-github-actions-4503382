@@ -1,8 +1,5 @@
 # Data Pipeline Automation with GitHub Actions
 
-[![Data Refresh](https://github.com/LinkedInLearning/data-pipeline-automation-with-github-actions-4503382/actions/workflows/data_refresh.yml/badge.svg?branch=stg)](https://github.com/LinkedInLearning/data-pipeline-automation-with-github-actions-4503382/actions/workflows/data_refresh.yml)
-
-
 This is the repository for the LinkedIn Learning course `Data Pipeline Automation with GitHub Actions`. The full course is available from [LinkedIn Learning][lil-course-url].
 
 _See the readme file in the main branch for updated instructions and information._
