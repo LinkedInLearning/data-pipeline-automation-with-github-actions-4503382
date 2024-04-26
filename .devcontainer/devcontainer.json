@@ -1,11 +1,11 @@
 {
     "name": "EIA Data Automation",
     "image": "rkrispin/data-pipeline-automation-with-github-actions:prod",
-    "settings": {
-        "python.defaultInterpreterPath": "/opt/LINKEDIN_LEARNING/bin/python3",
-        "python.selectInterpreter": "/opt/LINKEDIN_LEARNING/bin/python3"
-    },
     "customizations": {
+        "settings": {
+            "python.defaultInterpreterPath": "/opt/LINKEDIN_LEARNING/bin/python3",
+            "python.selectInterpreter": "/opt/LINKEDIN_LEARNING/bin/python3"
+        },
         "vscode": {
             "extensions": [
                 // R Extensions
