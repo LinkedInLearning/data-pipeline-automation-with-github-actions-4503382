@@ -1635,3 +1635,7 @@ index,parent,subba,time,start,end,start_act,end_act,start_match,end_match,n_obs,
 409,CISO,SCE,2024-04-30 12:08:36.587177+00:00,2024-04-29 08:00:00,2024-04-29 07:00:00,,,,,,,refresh,False,False,"No new data is available; The data refresh failed, please check the log; "
 409,CISO,SDGE,2024-04-30 12:08:36.588916+00:00,2024-04-29 08:00:00,2024-04-29 07:00:00,,,,,,,refresh,False,False,"No new data is available; The data refresh failed, please check the log; "
 409,CISO,VEA,2024-04-30 12:08:36.590429+00:00,2024-04-29 08:00:00,2024-04-29 07:00:00,,,,,,,refresh,False,False,"No new data is available; The data refresh failed, please check the log; "
+410,CISO,PGAE,2024-05-01 00:22:19.771273+00:00,2024-04-29 08:00:00,2024-04-30 07:00:00,2024-04-29 08:00:00,2024-04-30 07:00:00,True,True,24.0,0.0,refresh,True,True,
+410,CISO,SCE,2024-05-01 00:22:20.768507+00:00,2024-04-29 08:00:00,2024-04-30 07:00:00,2024-04-29 08:00:00,2024-04-30 07:00:00,True,True,24.0,0.0,refresh,True,True,
+410,CISO,SDGE,2024-05-01 00:22:21.724961+00:00,2024-04-29 08:00:00,2024-04-30 07:00:00,2024-04-29 08:00:00,2024-04-30 07:00:00,True,True,24.0,0.0,refresh,True,True,
+410,CISO,VEA,2024-05-01 00:22:22.820137+00:00,2024-04-29 08:00:00,2024-04-30 07:00:00,2024-04-29 08:00:00,2024-04-30 07:00:00,True,True,24.0,0.0,refresh,True,True,
