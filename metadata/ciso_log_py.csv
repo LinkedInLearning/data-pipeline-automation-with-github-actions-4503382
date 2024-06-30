@@ -2119,3 +2119,7 @@ index,parent,subba,time,start,end,start_act,end_act,start_match,end_match,n_obs,
 530,CISO,SCE,2024-06-30 12:09:15.312979+00:00,2024-06-26 08:00:00,2024-06-30 07:00:00,2024-06-26 08:00:00,2024-06-30 07:00:00,True,True,96.0,24.0,refresh,False,False,"Missing values were found; The data refresh failed, please check the log; "
 530,CISO,SDGE,2024-06-30 12:09:16.466853+00:00,2024-06-26 08:00:00,2024-06-30 07:00:00,2024-06-26 08:00:00,2024-06-30 07:00:00,True,True,96.0,24.0,refresh,False,False,"Missing values were found; The data refresh failed, please check the log; "
 530,CISO,VEA,2024-06-30 12:09:17.627294+00:00,2024-06-26 08:00:00,2024-06-30 07:00:00,2024-06-26 08:00:00,2024-06-30 07:00:00,True,True,96.0,24.0,refresh,False,False,"Missing values were found; The data refresh failed, please check the log; "
+531,CISO,PGAE,2024-06-30 22:05:12.423996+00:00,2024-06-26 08:00:00,2024-06-30 07:00:00,2024-06-26 08:00:00,2024-06-30 07:00:00,True,True,96.0,0.0,refresh,True,True,
+531,CISO,SCE,2024-06-30 22:05:14.634740+00:00,2024-06-26 08:00:00,2024-06-30 07:00:00,2024-06-26 08:00:00,2024-06-30 07:00:00,True,True,96.0,0.0,refresh,True,True,
+531,CISO,SDGE,2024-06-30 22:05:16.839388+00:00,2024-06-26 08:00:00,2024-06-30 07:00:00,2024-06-26 08:00:00,2024-06-30 07:00:00,True,True,96.0,0.0,refresh,True,True,
+531,CISO,VEA,2024-06-30 22:05:19.026119+00:00,2024-06-26 08:00:00,2024-06-30 07:00:00,2024-06-26 08:00:00,2024-06-30 07:00:00,True,True,96.0,0.0,refresh,True,True,
