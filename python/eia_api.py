@@ -107,6 +107,11 @@ def eia_get(api_key,
     df["period"] = pd.to_datetime(df["period"])
     df["value"] = pd.to_numeric(df["value"])
     df = df.sort_values(by = ["period"])
+        # If start and end arguments are hourly
+    if df["period"].min() < start:
+        df = df[df["period"] >= start]
+    if df["period"].max() > end:
+        df = df[df["period"] <= end]
 
     parameters = {
         "api_path": api_path,
