@@ -2556,6 +2556,10 @@ index,parent,subba,time,start,end,start_act,end_act,start_match,end_match,n_obs,
 639,CISO,SDGE,2024-08-24 12:08:51.954955+00:00,2024-08-23 08:00:00,2024-08-24 07:00:00,2024-08-23 08:00:00,2024-08-24 07:00:00,True,True,24.0,0.0,refresh,True,True,
 639,CISO,VEA,2024-08-24 12:08:53.081541+00:00,2024-08-23 08:00:00,2024-08-24 07:00:00,2024-08-23 08:00:00,2024-08-24 07:00:00,True,True,24.0,0.0,refresh,True,True,
 640,CISO,PGAE,2024-08-25 00:24:56.191426+00:00,2024-08-24 08:00:00,2024-08-24 07:00:00,,,,,,,refresh,False,False,"No new data is available; The data refresh failed, please check the log; "
-640,CISO,SCE,2024-08-25 00:24:56.737570+00:00,2024-08-23 08:00:00,2024-08-24 07:00:00,2024-08-23 08:00:00,2024-08-24 07:00:00,True,True,24,11,refresh,False,False,"Missing values were found; The data refresh failed, please check the log; "
+640,CISO,SCE,2024-08-25 00:24:56.737570+00:00,2024-08-23 08:00:00,2024-08-24 07:00:00,2024-08-23 08:00:00,2024-08-24 07:00:00,True,True,24.0,11.0,refresh,False,False,"Missing values were found; The data refresh failed, please check the log; "
 640,CISO,SDGE,2024-08-25 00:24:56.740541+00:00,2024-08-24 08:00:00,2024-08-24 07:00:00,,,,,,,refresh,False,False,"No new data is available; The data refresh failed, please check the log; "
 640,CISO,VEA,2024-08-25 00:24:56.742312+00:00,2024-08-24 08:00:00,2024-08-24 07:00:00,,,,,,,refresh,False,False,"No new data is available; The data refresh failed, please check the log; "
+641,CISO,PGAE,2024-08-26 00:23:19.552727+00:00,2024-08-24 08:00:00,2024-08-25 07:00:00,2024-08-24 08:00:00,2024-08-25 07:00:00,True,True,24.0,0.0,refresh,True,True,
+641,CISO,SCE,2024-08-26 00:23:20.869628+00:00,2024-08-23 08:00:00,2024-08-25 07:00:00,2024-08-23 08:00:00,2024-08-25 07:00:00,True,True,48.0,11.0,refresh,False,False,"Missing values were found; The data refresh failed, please check the log; "
+641,CISO,SDGE,2024-08-26 00:23:21.958795+00:00,2024-08-24 08:00:00,2024-08-25 07:00:00,2024-08-24 08:00:00,2024-08-25 07:00:00,True,True,24.0,0.0,refresh,True,True,
+641,CISO,VEA,2024-08-26 00:23:23.387757+00:00,2024-08-24 08:00:00,2024-08-25 07:00:00,2024-08-24 08:00:00,2024-08-25 07:00:00,True,True,24.0,0.0,refresh,True,True,
