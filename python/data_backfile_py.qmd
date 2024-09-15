@@ -45,6 +45,7 @@ api_path = meta_json["api_path"]
 ```
 
 
+**Note:** The API has a data retention policy, and every few months, the last few months are being trimmed. Currently, the first observation available for the California balancing authority subregion dataset is January 1st, 2019. You can pull from the API the series metadata and validate the date of the first observation (see the next code chunk) or check on the [API dashboard](https://www.eia.gov/opendata/browser/electricity/rto/region-sub-ba-data?frequency=hourly&data=value;&sortColumn=period;&sortDirection=desc;) using the start filter under the frequency menu.  
 ```{python}
 
 facets_template = {
@@ -52,8 +53,8 @@ facets_template = {
   "subba" : None
 }
 
-start = datetime.datetime(2018, 7, 1, 8)
-end = datetime.datetime(2024, 2, 18, 1)
+start = datetime.datetime(2019, 1, 1, 0)
+end = datetime.datetime(2024, 9, 14, 1)
 
 offset = 2250
 
@@ -99,8 +100,6 @@ for i in series.index:
   else:
     data = data._append(ts_obj)
     meta = meta._append(meta_df)
-
-
 
 ```
 
