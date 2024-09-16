@@ -49,6 +49,9 @@ api_path <- meta_json[[2]]
 ```
 
 
+**Note:** The API has a data retention policy, and every few months, the last few months are being trimmed. Currently, the first observation available for the California balancing authority subregion dataset is January 1st, 2019. You can pull from the API the series metadata and validate the date of the first observation (see the next code chunk) or check on the [API dashboard](https://www.eia.gov/opendata/browser/electricity/rto/region-sub-ba-data?frequency=hourly&data=value;&sortColumn=period;&sortDirection=desc;) using the start filter under the frequency menu. 
+
+
 ```{r}
 #| warning: false
 facets_template <- list(
@@ -56,8 +59,8 @@ facets_template <- list(
     subba = NULL
 )
 
-start <- as.POSIXct("2018-7-01 8:00:00")
-end <- as.POSIXct("2024-2-18 0:00:00")
+start <- as.POSIXct("2019-01-01 0:00:00")
+end <- as.POSIXct("2024-09-14 0:00:00")
 attr(start, "tzone") <- "UTC"
 attr(end, "tzone") <- "UTC"
 
