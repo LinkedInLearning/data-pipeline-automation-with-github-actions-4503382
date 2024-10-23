@@ -20,7 +20,7 @@ Throughout the course, we will work with the EIA API to pull data and metadata. 
 
 For learning purposes, we store the data pipeline outputs and metadata locally, in the [csv](https://github.com/RamiKrispin/data-pipeline-automation-with-github-actions-4503382/tree/main/csv) and [metadata](https://github.com/RamiKrispin/data-pipeline-automation-with-github-actions-4503382/tree/main/metadata) folders.
 
-### Instructor
+## Instructor
 
 Rami Krispin
 
